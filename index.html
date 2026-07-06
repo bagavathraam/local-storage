@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    .d1{
+        background-color: dimgray;
+        width:400px;
+        height: 400px;
+        margin: auto;
+        
+    }
+    h1{
+       color: chartreuse;
+       text-align: center;
+    }
+    .i1{
+        position: fixed;
+        margin-left: 85px;
+        margin-top: 50px;
+        z-index: 0;
+        width: 230px;
+        height: 30px;
+    }
+    .i2{
+        position: fixed;
+        margin-top: 150px;
+        margin-left: 85px;
+        z-index: 0;
+        width: 230px;
+        height: 30px;
+    }
+    .di1{
+        position: absolute;
+        margin-left: 100px;
+        margin-top: 55;
+        z-index: 1;
+        
+    }
+    .di2{
+        position: absolute;
+        margin-top: 155px;
+        margin-left: 100px;
+        z-index: 1;
+    }
+    .da1{
+        margin-top: 200px;
+        margin-left: 80px;
+
+    }
+    .da2{
+        margin-left: 270px;
+        margin-top: -15;
+    }
+    .b1{
+        margin-top: 30px;
+        margin-left: 90px;
+        width: 220px;
+        height: 35px;
+        background-color: chartreuse;
+    }
+    .a1{
+        text-decoration: none;
+        color: black;
+    }
+    .a2{
+        text-decoration: none;
+        color: chartreuse;
+    }
+    .i1 .i2 input:focus~i,
+    .i1 .i2 input:valid~i
+    {
+        transform: translateY(-7.5px);
+        font-size: 0.8em;
+        color: #fff;
+    }
+
+    
+
+
+
+</style>
+
+<body>
+    <div class="d1" >
+        <h1>sign in</h1>
+        <input class="i1" type="text" required><div class="di1"><i class="user">username</i></div>
+        <input class="i2" type="password" required><div class="di2"><i class="pass">password</i></div><br>
+        <div class="da1"><a class="a1" href="">forgot password</a></div> <div class="da2"><a class="a2" href="">sign in</a></div>
+        <button class="b1" onclick="myFunction()">login</button>
+
+    </div>
+</body>
+
+<script>
+
+    function myFunction(){
+        var a1=document.getElementById("i1").value;
+        var b1=document.getElementById("i2").value;
+
+        if(a1=="") {alert("enter the username");}
+        else if(b1=="") {alert("enter the password");}
+        else {alert("successful");}
+    }
+</script>
+
+</html>
