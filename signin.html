@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    body{
+        background-color: black;
+    }
+     .d1{
+     background-color: dimgray;
+     width:400px;
+     height: 450px;
+     margin: auto;
+     margin-top: 220px;
+        
+    }
+    #i1{
+        position: fixed;
+        margin-left: 85px;
+        margin-top: 50px;
+        z-index: 0;
+        width: 230px;
+        height: 30px;
+    }
+    #i2{
+        position: fixed;
+        margin-top: 110px;
+        margin-left: 85px;
+        z-index: 0;
+        width: 230px;
+        height: 30px;
+    }
+    #i3{
+        margin-top: 170px;
+        width: 230px;
+        height: 30px;
+        margin-left: 85px;
+        
+    }
+
+    #i4{
+        width: 230px;
+        height: 30px;
+        margin-left: 85px;
+        margin-top: 25px;
+    }
+     h1{
+       color: chartreuse;
+       text-align: center;
+    }
+    .da2{
+        margin-left: 260px;
+        margin-top: 18;
+    }
+    .a2{
+        text-decoration: none;
+        color: chartreuse;
+        
+    }
+    .b1{
+        margin-top: 30px;
+        margin-left: 90px;
+        width: 220px;
+        height: 35px;
+        background-color: chartreuse;
+    }
+
+</style>
+<body>
+    <div class="d1">
+        <h1>sign up</h1>
+        <input placeholder=" name" id="i1" type="text">
+        <input placeholder=" user name" id="i2" type="text">
+        <input placeholder=" mail id" id="i3" type="text">
+        <input placeholder=" password" id="i4" type="password">
+        <div class="da2"><a class="a2" href="index.html">sign in</a></div>
+        <button class="b1" value="onclick" onclick="signin()">signin</button>
+    </div>
+
+    <script>
+
+        function signin(){
+            var name=document.getElementById("i1").value;
+            var username=document.getElementById("i2").value;
+            var email=document.getElementById("i3").value;
+            var password=document.getElementById("i4").value;
+            
+            if(name && username && email && password){
+                localStorage.setItem(username,JSON.stringify({name,username,email,password}));
+                window.location.href="index.html";
+            }
+            else{
+                alert("fill all the details")
+            }
+        }
+
+    </script>
+
+</body>
+</html>

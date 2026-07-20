@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
+<style> 
+
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
     body{
         background-color: black;
     }
@@ -13,53 +18,50 @@
         width:400px;
         height: 400px;
         margin: auto;
+        margin-top: 210px;
         
     }
     h1{
        color: chartreuse;
        text-align: center;
     }
-    .i1{
-        position: fixed;
+    #i1{
         margin-left: 85px;
-        margin-top: 50px;
-        z-index: 0;
+        margin-top: 60px;
         width: 230px;
         height: 30px;
     }
-    .i2{
-        position: fixed;
-        margin-top: 150px;
+    #i2{
+        margin-top: 80px;
         margin-left: 85px;
-        z-index: 0;
         width: 230px;
         height: 30px;
     }
     .di1{
-        position: absolute;
         margin-left: 100px;
         margin-top: 55;
-        z-index: 1;
+      
         
     }
     .di2{
-        position: absolute;
+       
         margin-top: 155px;
         margin-left: 100px;
-        z-index: 1;
+        
+        
     }
     .da1{
-        margin-top: 200px;
-        margin-left: 80px;
+        margin-top: -140px;
+        margin-left: 640px;
 
     }
     .da2{
-        margin-left: 270px;
-        margin-top: -15;
+        margin-left: 840px;
+        margin-top: -18;
     }
     .b1{
         margin-top: 30px;
-        margin-left: 90px;
+        margin-left: 655px;
         width: 220px;
         height: 35px;
         background-color: chartreuse;
@@ -72,13 +74,7 @@
         text-decoration: none;
         color: chartreuse;
     }
-    .i1 .i2 input:focus~i,
-    .i1 .i2 input:valid~i
-    {
-        transform: translateY(-7.5px);
-        font-size: 0.8em;
-        color: #fff;
-    }
+
 
     
 
@@ -89,24 +85,42 @@
 <body>
     <div class="d1" >
         <h1>sign in</h1>
-        <input class="i1" type="text" required><div class="di1"><i class="user">username</i></div>
-        <input class="i2" type="password" required><div class="di2"><i class="pass">password</i></div><br>
-        <div class="da1"><a class="a1" href="">forgot password</a></div> <div class="da2"><a class="a2" href="">sign in</a></div>
-        <button class="b1" onclick="myFunction()">login</button>
+        <input placeholder=" username" id="i1" type="text" required>
+        <input placeholder=" password" id="i2" type="password" required></div><br>
+        <div class="da1"><a class="a1" href="">forgot password</a></div> <div class="da2"><a class="a2" href="signin.html">sign up</a></div>
+        <button class="b1" value="onclick" onclick="signin()">login</button>
+        
 
     </div>
 </body>
 
 <script>
 
-    function myFunction(){
-        var a1=document.getElementById("i1").value;
-        var b1=document.getElementById("i2").value;
+function signin(){
+    var username =document.getElementById("i1").value;
+    var password =document.getElementById("i2").value;
+    var storedData =localStorage.getItem(username);
 
-        if(a1=="") {alert("enter the username");}
-        else if(b1=="") {alert("enter the password");}
-        else {alert("successful");}
+    if(storedData){
+        var parsedData =JSON.parse(storedData);
+        var storedUsername =parsedData.username;
+        var storedPassword =parsedData.password;
+
+        console.log(username,password,storedUsername,storedPassword);
+
+        if(username === storedUsername && password === storedPassword){
+            window.location.href="welcome.html";
+        }
+        else{
+            alert("Enter the valid username")
+        }
     }
+    else{
+        alert("Enter the username")
+    }
+}
+
+
 </script>
 
 </html>
